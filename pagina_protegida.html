@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 200px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Autenticação Usuário Dinamo</h2>
+    <form onsubmit="checkCredentials(); return false;">
+        <label for="username">E-mail:</label>
+        <input type="text" id="username" required>
+        <br>
+        <label for="password">Matrícula:</label>
+        <input type="password" id="password" required>
+        <br>
+        <button type="submit">Entrar</button>
+    </form>
+
+    <script src="usuarios.js"></script>
+    <script>
+        function checkCredentials() {
+            var enteredUsername = document.getElementById("username").value;
+            var enteredPassword = document.getElementById("password").value;
+
+            // Verifica se as credenciais estão na lista
+            if (usuariosESenhas[enteredUsername] === enteredPassword) {
+                window.location.href = "https://app.powerbi.com/view?r=eyJrIjoiMTJjMGE4MTEtZjhkMS00ZGExLWE0NDItZjkwNDY3NGI4NGE3IiwidCI6IjdhNWMzMjU1LWU5ZTEtNGJkYy05MTcyLTQwOTU5MTdkNDY3ZSJ9";
+            } else {
+                alert("Credenciais inválidas. Tente novamente OU procure setor qualidade.");
+            }
+        }
+    </script>
+</body>
+</html>
